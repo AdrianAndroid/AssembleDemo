@@ -68,3 +68,49 @@ chmod +x $runFileName_no_ext # 可执行文件
 
 cd -
 ```
+
+# 调试
+以下是使用 Clang 编译器和调试器（例如 GDB）进行调试的一般步骤：
+
+编译时加入调试信息：在使用 Clang 编译源代码时，可以添加 -g 标志来生成调试信息。这将允许调试器在运行时分析源代码和变量信息。
+bash
+
+clang -g source.c -o output
+启动调试器：使用适当的调试器（例如 GDB）来启动可执行文件，开始调试过程。
+bash
+
+gdb ./output
+设置断点：在调试器中，你可以设置断点，即指定程序暂停执行的位置。这样，你就可以在特定位置检查变量值等。
+bash
+
+break main   # 在 main 函数设置断点
+运行程序：运行程序，调试器会在断点处停止执行，然后你可以开始进行调试。
+bash
+
+run
+查看变量值：在断点停止的位置，你可以使用调试器的命令来查看变量的当前值。
+bash
+
+print variable_name
+单步执行：你可以逐行地执行程序，检查变量的值和程序流程。
+bash
+
+step   # 单步执行
+继续执行：继续执行程序，直到下一个断点或程序结束。
+bash
+
+continue   # 继续执行
+退出调试器：退出调试器会终止调试会话。
+bash
+
+quit
+这只是调试的基本步骤。调试器通常提供丰富的功能，可以帮助你分析代码、识别问题并进行修复。调试是编程过程中非常重要的一部分，可以帮助你理解程序的运行情况并找到错误。
+
+
+# lldb
+https://www.bilibili.com/video/BV1At411E7LB/?spm_id_from=333.337.search-card.all.click
+
+
+
+C 头文件
+https://www.runoob.com/cprogramming/c-header-files.html

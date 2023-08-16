@@ -3,6 +3,8 @@ package com.assembledemo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.assembledemo.databinding.ActivityMainBinding;
@@ -26,6 +28,19 @@ public class MainActivity extends AppCompatActivity {
         // Example of a call to a native method
         TextView tv = binding.sampleText;
         tv.setText(stringFromJNI());
+
+        binding.btnStringPointerArray.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("MainActivity", "onClick: bindStringPointerArray start");
+                try {
+                    bindStringPointerArray();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Log.i("MainActivity", "onClick: bindStringPointerArray end");
+            }
+        });
     }
 
     /**
@@ -33,4 +48,5 @@ public class MainActivity extends AppCompatActivity {
      * which is packaged with this application.
      */
     public native String stringFromJNI();
+    public native void  bindStringPointerArray();
 }
